@@ -1,0 +1,2 @@
+celery==4.1.0
+Django==2.0
