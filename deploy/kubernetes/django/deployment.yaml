@@ -1,21 +1,21 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: kubernetes-django-deployment
+  name: django
   labels:
-    app: kubernetes-django
+    app: django
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kubernetes-django
+      app: django-pod
   template:
     metadata:
       labels: 
-        app: kubernetes-django
+        app: django-pod
     spec:
       containers:
-        - name: kubernetes-django
+        - name: django-web
           image: gitumarkk/k8_django_minikube:1.0.5
           ports:
             - containerPort: 8000
