@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'health_check',                             # required
+    # Running Health Checks
+    'health_check',
     'health_check.db',
 ]
 
