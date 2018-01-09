@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: django-migrations
+spec:
+  template:
+    spec:
+      containers:
+        - name: django
+          image: gitumarkk/k8_django_minikube:1.0.4
+          command: ['python', 'manage.py', 'migrate']
+          env:
+            - name: POSTGRES_USER
+              valueFrom: 
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: user
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
+
+            - name: POSTGRES_HOST
+              value: postgres-service
+      restartPolicy: Never
+  backoffLimit: 5
