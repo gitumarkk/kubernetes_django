@@ -1,21 +1,34 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: kubernetes-django-deployment
-  labels:
-    app: kubernetes-django
+  name: django-pod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kubernetes-django
+      app: django-container
   template:
     metadata:
       labels: 
-        app: kubernetes-django
+        app: django-container
     spec:
       containers:
-        - name: kubernetes-django
-          image: gitumarkk/k8_django_minikube:1.0.5
+        - name: django
+          image: gitumarkk/k8_django_minikube:1.0.4
           ports:
             - containerPort: 8000
+          env:
+            - name: POSTGRES_USER
+              valueFrom: 
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: user
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
+
+            - name: POSTGRES_HOST
+              value: postgres-service

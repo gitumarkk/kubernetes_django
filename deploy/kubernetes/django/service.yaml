@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: kubernetes-django-service
+  name: django-service
 spec:
   selector:
-    app: kubernetes-django
+    app: django-container
   ports:
   - protocol: TCP
     port: 8000

@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgres-service
+spec:
+  selector:
+    name: postgres-pod
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
