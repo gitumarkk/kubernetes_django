@@ -6,28 +6,31 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres-pod
+      app: postgres-container
   template:
     metadata:
       labels:
-        app: postgres-pod
+        app: postgres-container
         tier: backend
     spec:
       containers:
-        - name: postgres-pod
+        - name: postgres-container
           image: postgres:9.6.6
           env:
             - name: POSTGRES_USER
-              valueFrom: 
-                secretKeyRef: 
+              valueFrom:
+                secretKeyRef:
                   name: postgres-credentials
                   key: user
 
             - name: POSTGRES_PASSWORD
-              valueFrom: 
-                secretKeyRef: 
+              valueFrom:
+                secretKeyRef:
                   name: postgres-credentials
                   key: password
+
+            - name: POSTGRES_DB
+              value: kubernetes_django
 
           ports:
             - containerPort: 5432
