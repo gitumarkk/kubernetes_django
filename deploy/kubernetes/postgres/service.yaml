@@ -4,7 +4,7 @@ metadata:
   name: postgres-service
 spec:
   selector:
-    name: postgres-pod
+    app: postgres-container
   ports:
     - protocol: TCP
       port: 5432
