@@ -7,11 +7,11 @@ spec:
     spec:
       containers:
         - name: django
-          image: gitumarkk/k8_django_minikube:1.0.4
+          image: gitumarkk/k8_django_minikube:1.0.5
           command: ['python', 'manage.py', 'migrate']
           env:
             - name: POSTGRES_USER
-              valueFrom: 
+              valueFrom:
                 secretKeyRef:
                   name: postgres-credentials
                   key: user

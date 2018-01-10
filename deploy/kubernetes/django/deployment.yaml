@@ -9,17 +9,17 @@ spec:
       app: django-container
   template:
     metadata:
-      labels: 
+      labels:
         app: django-container
     spec:
       containers:
         - name: django
-          image: gitumarkk/k8_django_minikube:1.0.4
+          image: gitumarkk/k8_django_minikube:1.0.5
           ports:
             - containerPort: 8000
           env:
             - name: POSTGRES_USER
-              valueFrom: 
+              valueFrom:
                 secretKeyRef:
                   name: postgres-credentials
                   key: user
