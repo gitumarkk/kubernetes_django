@@ -11,5 +11,5 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /Users/markgituma1/Desktop/GITHUB/kubernetes_django/kubernetes-data
+    path: /data/postgres-pv
 
