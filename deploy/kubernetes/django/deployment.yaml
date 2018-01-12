@@ -32,3 +32,12 @@ spec:
 
             - name: POSTGRES_HOST
               value: postgres-service
+
+          volumeMounts:
+            - name: postgres-volume-mount
+              mountPath: /var/lib/busybox
+
+      volumes:
+        - name: postgres-volume-mount
+          persistentVolumeClaim:
+            claimName: postgres-pvc
