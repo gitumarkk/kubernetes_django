@@ -2,6 +2,8 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: django
+  labels:
+    app: django
 spec:
   replicas: 1
   selector:
