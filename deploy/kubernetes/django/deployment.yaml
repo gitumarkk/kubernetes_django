@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: django
-          image: gitumarkk/k8_django_minikube:1.0.5
+          image: gitumarkk/k8_django_minikube:part_3
           ports:
             - containerPort: 8000
           env:
