@@ -16,6 +16,13 @@ app.config_from_object('django.conf:settings')
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
+app.conf.beat_schedule = {
+    'display_time-30-seconds': {
+        'task': 'demoapp.tasks.display_time',
+        'schedule': 30.0 / 6,
+        'args': (16, 16)
+    },
+}
 
 @app.task(bind=True)
 def debug_task(self):
