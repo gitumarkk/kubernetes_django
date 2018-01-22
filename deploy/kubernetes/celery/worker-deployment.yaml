@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: celery-worker
   labels:
-    app: celery-worker
+    deployment: celery-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: celery-worker-container
+      pod: celery-worker
   template:
     metadata:
       labels:
-        app: celery-worker-container
+        pod: celery-worker
     spec:
       containers:
         - name: celery-worker
@@ -35,4 +35,4 @@ spec:
               value: postgres-service
 
             - name: REDIS_HOST
-              value: redis-master
+              value: redis-service

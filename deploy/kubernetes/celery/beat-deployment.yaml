@@ -8,11 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: celery-beat-container
+      pod: celery-beat
   template:
     metadata:
       labels:
-        app: celery-beat-container
+        pod: celery-beat
     spec:
       containers:
         - name: celery-beat
@@ -35,4 +35,4 @@ spec:
               value: postgres-service
 
             - name: REDIS_HOST
-              value: redis-master
+              value: redis-service
