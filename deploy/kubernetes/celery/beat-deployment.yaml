@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: celery-beat
   labels:
-    app: celery-beat
+    deployment: celery-beat
 spec:
   replicas: 1
   selector:

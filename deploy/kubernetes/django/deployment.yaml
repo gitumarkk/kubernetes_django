@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: django
   labels:
-    app: django
+    deployment: django
 spec:
   replicas: 1
   selector:
