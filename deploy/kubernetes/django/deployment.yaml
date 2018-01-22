@@ -8,11 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: django-container
+      pod: django
   template:
     metadata:
       labels:
-        app: django-container
+        pod: django
     spec:
       containers:
         - name: django
@@ -36,4 +36,4 @@ spec:
               value: postgres-service
 
             - name: REDIS_HOST
-              value: redis-master
+              value: redis-service

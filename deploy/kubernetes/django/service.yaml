@@ -4,7 +4,7 @@ metadata:
   name: django-service
 spec:
   selector:
-    app: django-container
+    pod: django
   ports:
   - protocol: TCP
     port: 8000
