@@ -17,10 +17,9 @@ app.config_from_object('django.conf:settings')
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
-    'display_time-30-seconds': {
+    'display_time-20-seconds': {
         'task': 'demoapp.tasks.display_time',
-        'schedule': 30.0 / 6,
-        'args': (16, 16)
+        'schedule': 20.0
     },
 }
 
