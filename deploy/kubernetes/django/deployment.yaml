@@ -11,11 +11,11 @@ spec:
       app: django-pod
   template:
     metadata:
-      labels: 
+      labels:
         app: django-pod
     spec:
       containers:
         - name: django-web
-          image: gitumarkk/k8_django_minikube:1.0.5
+          image: gitumarkk/k8_django_minikube:part_2
           ports:
             - containerPort: 8000
