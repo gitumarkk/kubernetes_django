@@ -1,0 +1,28 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: flower
+  labels:
+    deployment: flower
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: celery-flower
+  template:
+    metadata:
+      labels:
+        pod: celery-flower
+    spec:
+      containers:
+      - name: flower
+        image: gitumarkk/k8_django_minikube:part_4
+        command: ['celery', 'flower', '-A', 'kubernetes_django' , 'flower']
+        ports:
+          - containerPort: 5555
+        env:
+            - name: REDIS_HOST
+              value: redis-service
+        resources:
+          limits:
+            cpu: 100m

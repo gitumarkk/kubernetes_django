@@ -1,24 +1,14 @@
-apiVersion: apps/v1beta2
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: django
-  labels:
-    deployment: django
+  name: django-migrations
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      pod: django
   template:
-    metadata:
-      labels:
-        pod: django
     spec:
       containers:
         - name: django
-          image: gitumarkk/k8_django_minikube:part_4
-          ports:
-            - containerPort: 8000
+          image: gitumarkk/k8_django_minikube:part_3
+          command: ['python', 'manage.py', 'migrate']
           env:
             - name: POSTGRES_USER
               valueFrom:
@@ -34,6 +24,5 @@ spec:
 
             - name: POSTGRES_HOST
               value: postgres-service
-
-            - name: REDIS_HOST
-              value: redis-service
+      restartPolicy: Never
+  backoffLimit: 5
