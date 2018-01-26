@@ -7,6 +7,6 @@ spec:
     app: django-pod
   ports:
   - protocol: TCP
-    port: 8000
+    port: 80
     targetPort: 8000
-  type: NodePort
+  type: LoadBalancer
