@@ -1,22 +1,11 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: redis-service
-# spec:
-#   selector:
-#     pod: redis
-#   ports:
-#   - protocol: TCP
-#     port: 6379
-#     targetPort: 6379
-
-
-
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: redis-service
-  # namespace: production
 spec:
-  type: ExternalName
-  externalName: my.database.example.com
+  selector:
+    pod: redis
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379
