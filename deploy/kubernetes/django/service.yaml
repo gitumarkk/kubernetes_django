@@ -2,6 +2,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: django-service
+  annotations:
+    prometheus.io/scrape: "true"
 spec:
   selector:
     pod: django

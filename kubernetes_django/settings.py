@@ -44,11 +44,15 @@ INSTALLED_APPS = [
     'health_check.cache',
     'health_check.contrib.celery',
 
+    # Prometheus
+    'django_prometheus',
+
     # Project
     'demoapp'
 ]
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_prometheus.middleware.PrometheusAfterMiddleware',
 ]
 
 ROOT_URLCONF = 'kubernetes_django.urls'
@@ -155,4 +160,3 @@ CACHES = {
 BROKER_URL = REDIS_URL
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-

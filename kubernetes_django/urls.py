@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path(r'', include('django_prometheus.urls')),
     path('admin/', admin.site.urls),
 
     # Creating the health check endpoint

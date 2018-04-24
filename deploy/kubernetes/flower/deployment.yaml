@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flower
-        image: gitumarkk/k8_django_minikube:part_4
+        image: gitumarkk/k8_django_minikube:part_6
         command: ['celery', 'flower', '-A', 'kubernetes_django' , 'flower']
         ports:
           - containerPort: 5555
