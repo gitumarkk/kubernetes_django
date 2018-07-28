@@ -1,2 +1,3 @@
 celery==4.1.0
 Django==2.0
+kombu==4.1.0
