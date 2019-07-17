@@ -5,6 +5,7 @@ metadata:
   labels:
     type: local
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteMany
   resources:
