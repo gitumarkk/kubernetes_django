@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Creating the health check endpoint
-    path(r'', include('health_check.urls')),
+    path(r'', include('health_check.urls'))
 ]

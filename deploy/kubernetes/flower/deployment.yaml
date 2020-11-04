@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flower
@@ -17,7 +17,7 @@ spec:
       containers:
       - name: flower
         image: gitumarkk/k8_django_minikube:part_6
-        command: ['celery', 'flower', '-A', 'kubernetes_django' , 'flower']
+        command: ['celery', 'flower', '-A', 'kubernetes_django']
         ports:
           - containerPort: 5555
         env:

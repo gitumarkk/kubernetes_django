@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: celery-worker
@@ -17,7 +17,7 @@ spec:
       containers:
         - name: celery-worker
           image: gitumarkk/k8_django_minikube:part_6
-          command: ['celery', '-A', 'kubernetes_django', 'worker', '-l', 'info']
+          command: ['celery', '-A', 'kubernetes_django', 'worker', '-l', 'INFO']
           env:
             - name: POSTGRES_USER
               valueFrom:

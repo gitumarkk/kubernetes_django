@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: django
@@ -17,6 +17,7 @@ spec:
       containers:
         - name: django
           image: gitumarkk/k8_django_minikube:part_6
+          command: ['/bin/bash', 'run.sh'] # runs migrations and starts the server
           ports:
             - containerPort: 8000
           env:
