@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: postgres-container
-          image: postgres:9.6.6
+          image: postgres:13
           env:
             - name: POSTGRES_USER
               valueFrom:
