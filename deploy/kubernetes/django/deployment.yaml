@@ -1,21 +1,36 @@
+# Version of Kubernetes API
 apiVersion: apps/v1
+# The kind of resource that is being defined (Deployment, Service, etc.)
 kind: Deployment
+# Metadata about the deployment
 metadata:
+  # Name of the deployment
   name: django
+  # Labels that the deployment is tagged with, for easy querying
   labels:
     app: django
+# The specification of what the deployment should be
 spec:
+  # Number of replicas (pods) that should be running
   replicas: 1
+  # The selector defines how the Deployment finds which Pods to manage
   selector:
     matchLabels:
       app: django-container
+  # Describes the pod that will be created if not enough are running
   template:
+    # Metadata of the pod
     metadata:
+      # Labels that the pod is tagged with, for easy querying
       labels:
         app: django-container
+    # The specification of the pod
     spec:
       containers:
+        # The first (and in this case only) container in the pod
         - name: django-web
-          image: gitumarkk/k8_django_minikube:part_2
+          # The image that the container should be running
+          image: kubernetes_django:1.0.0
+          # The ports that should be open on the container
           ports:
             - containerPort: 8000
