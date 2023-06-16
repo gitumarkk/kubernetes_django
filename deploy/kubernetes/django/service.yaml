@@ -1,12 +1,23 @@
+# Kind of the resource. A Service is an abstract way to expose an application
 kind: Service
+
+# The version of the Kubernetes API to use
 apiVersion: v1
+
 metadata:
+  # Name of the service
   name: django-service
+
 spec:
+  # This service will route traffic to Pods with labels that match these labels
   selector:
     app: django-container
+
+  # List of ports and protocol (TCP/UDP) this service will be exposed on
   ports:
-  - protocol: TCP
-    port: 8000
-    targetPort: 8000
+  - protocol: TCP  # Protocol for the port
+    port: 8000     # The port that will be exposed by this service
+    targetPort: 8000  # The port on the target pods to which the service will send requests
+
+  # The type of service
   type: NodePort
