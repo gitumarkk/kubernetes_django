@@ -34,3 +34,6 @@ spec:
           # The ports that should be open on the container
           ports:
             - containerPort: 8000
+          env:
+            - name: PYTHONUNBUFFERED
+              value: "0"

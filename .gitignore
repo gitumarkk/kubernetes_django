@@ -106,3 +106,4 @@ venv.bak/
 # Custom
 .DS_Store
 .idea/
+db.sqlite3
